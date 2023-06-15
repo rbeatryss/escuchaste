@@ -1,0 +1,48 @@
+version: "3.9"
+name: escuchaste
+
+networks:
+    escuchaste:
+
+services:
+
+    nginx:
+        image: nginx:stable
+        volumes: 
+            - ./html:/var/www/html
+            - ./default.conf:/etc/nginx/conf.d/default.conf
+        ports:
+            - 30:80
+        restart: always
+        depends_on:
+            - php
+            - db
+        networks:
+            - escuchaste
+
+    php:
+        build: 
+            context: .
+            dockerfile: ./Dockerfile-php
+        volumes: 
+            - ./html:/var/www/html
+        ports:
+            - 9000:9000
+        restart: always
+        networks:
+            - escuchaste
+
+    db:
+        image: mysql:latest
+        volumes: 
+            - ./db:/var/lib/mysql
+        ports:
+            - 3303:3306
+        restart: always
+        environment:
+            - MYSQL_DATABASE=escuchaste
+            - MYSQL_USER=admin
+            - MYSQL_PASSWORD=secret
+            - MYSQL_ROOT_PASSWORD=secret
+        networks:
+            - escuchaste
