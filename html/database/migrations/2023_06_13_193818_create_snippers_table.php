@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('snippers', function (Blueprint $table) {
             $table->id();
+            $table->uuid("uuid");
+            $table->foreignId("user_id")->constrained()->cascasdeOnDelete();
+            $table->longText("content");
+            $table->enum("status", ["published", "draft"])->default("draft");
+            $table->unsignedBigInteger("likes")->default();
+            $table->unsignedBigInteger("snipper_comments")->default();
             $table->timestamps();
         });
     }

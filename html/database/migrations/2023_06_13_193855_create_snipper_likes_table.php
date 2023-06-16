@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('snipper_likes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("snipper_id")->constrained()->cascadeOnDelete();
+            $table->foreignId("user_id")->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

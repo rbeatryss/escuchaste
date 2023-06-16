@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->string("key");//cuando queramos más setting llamamos un key y le damos un value
+            $table->string("value");
             $table->timestamps();
         });
     }

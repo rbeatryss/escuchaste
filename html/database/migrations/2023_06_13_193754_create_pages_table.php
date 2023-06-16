@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
-            $table->foreing('user_id');
+            $table->foreign('user_id')->constrained()->cascadeOnDelete();
             $table->string('icon');
             $table->string('name');
-            
             $table->timestamps();
         });
     }
