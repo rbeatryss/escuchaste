@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid');
-            $table->foreign('user_id')->constrained()->cascadeOnDelete();
-            $table->string('icon');
-            $table->string('name');
+            $table->foreignId("snipper_id")->constrained()->cascadeOnDelete();
+            $table->foreignId("user_id")->constrained()->cascadeOnDelete();
+            $table->text("comment");
+            $table->enum("status", ["publish","pending"]);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('comments');
     }
 };
