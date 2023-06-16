@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('/login',"login")->name('login');
+Route::view('/registro',"register")->name('registro');
+Route::view('/privada',"secret")->middleware('auth')->name('privada'); // el middleware 'auth' sirve para proteger la página
+
+Route::post('validar-registro',[LoginController::class,'register'])->name('validar-registro');
+Route::post('inicia-sesion',[LoginController::class,'login'])->name('inicia-sesion');
+Route::get('logout',[LoginController::class,'logout'])->name('logout');
+    
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
 });
