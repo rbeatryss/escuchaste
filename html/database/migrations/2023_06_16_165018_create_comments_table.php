@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("snipper_id")->constrained()->cascadeOnDelete();
+            $table->foreignId("snippet_id")->constrained()->cascadeOnDelete();
             $table->foreignId("user_id")->constrained()->cascadeOnDelete();
             $table->text("comment");
-            $table->enum("status", ["publish","pending"]);
+            $table->enum("status", ["publish","pending"])->default("pending");
             $table->timestamps();
         });
     }
