@@ -19,8 +19,17 @@ class Comment extends Model
     /**
      * Get the user that owns the phone.
      */
+    public function snippet(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'snippet_id');
+    }
+
+    /**
+     * Get the post that owns the comment.
+     */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id', );
+        return $this->belongsTo(User::class);
     }
+
 }
