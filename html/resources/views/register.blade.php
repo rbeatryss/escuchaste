@@ -18,7 +18,7 @@
                 <input type="text" id="name" name="name">
 
                 <label for="fname">surname</label>
-                <input type="text" id="fname" name="fname">
+                <input type="text" id="surname" name="surname">
 
                 <label for="username">username</label>
                 <input type="text" id="username" name="username">
@@ -27,13 +27,13 @@
                 <input type="text" id="email" name="email">
 
                 <label for="email">email confirmation</label>
-                <input type="text" id="email" name="email">
+                <input type="text" id="emailConf" name="emailConf">
 
                 <label for="password">password</label>
                 <input type="password" id="password" name="password">
 
                 <label for="password">password confirmation</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="passwordConf" name="passwordConf">
 
                 <input class="btnSubmit" type="submit" value="Sign up">
             </form>

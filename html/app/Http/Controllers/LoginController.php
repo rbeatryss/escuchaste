@@ -17,7 +17,7 @@ class LoginController extends Controller {
         $user->username = $request->username;
         $user->email = $request->email;
         //$user->mailconfirmation = $request->mailconfirmation;
-        $user->password = Hash:: make($request->password);
+        $user->password = Hash::make($request->password);
         //$user->pwconfirmation = $request->pwconfirmation;
 
         $user->save();
@@ -33,9 +33,10 @@ class LoginController extends Controller {
             "password" => $request->password,
             "active" => true // opcional
         ];
+
         // Mantener sesión iniciada
-        $remember = ($request->has('remember') ? true : false);
-        if(Auth::attempt($credentials, $remember)){
+        //$remember = ($request->has('remember') ? true : false);
+        if(Auth::attempt($credentials/*, $remember*/)){
             $request->session()->regenerate();
             return redirect()->intended(route('privada'));
         } else {
