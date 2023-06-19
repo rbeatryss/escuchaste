@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="feed.css">
 </head>
 <body>
-
+<div class="navbar">
+    <a href="home.blade.php"
+</div>
 </body>
 </html>

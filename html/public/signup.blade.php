@@ -15,25 +15,25 @@
             <form action="#" method="post">
 
                 <label for="password">name</label>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" required>
 
                 <label for="password">surname</label>
-                <input type="text" id="fname" name="fname">
+                <input type="text" id="fname" name="fname" required>
 
                 <label for="username">username</label>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" required>
 
                 <label for="email">email</label>
-                <input type="text" id="email" name="email">
+                <input type="text" id="email" name="email" required>
 
                 <label for="email">email confirmation</label>
-                <input type="text" id="email" name="email">
+                <input type="text" id="email" name="email" required>
 
                 <label for="password">password</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" required>
 
                 <label for="password">password confirmation</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" required>
 
                 <input class="btnSubmit" type="submit" value="Sign up">
             </form>

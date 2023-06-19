@@ -14,10 +14,10 @@
         <div class="signInContainer">
             <form action="#" method="post">
                 <label for="email">email</label>
-                <input type="text" id="email" name="email">
+                <input type="text" id="email" name="email" required>
 
                 <label for="password">password</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" required>
 
                 <input class="btnSubmit" type="submit" value="Submit">
             </form>
@@ -26,7 +26,7 @@
                 <div class="orText">or</div>
                 <div class="dividerLine"></div>
             </div>
-            <a href="signup.php" class="btnSignUp">Sign up</a>
+            <a href="signup.blade.php" class="btnSignUp">Sign up</a>
         </div>
 </body>
 </html>
