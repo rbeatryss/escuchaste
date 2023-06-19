@@ -12,7 +12,11 @@
     </div>
     <h1>Log in</h1>
         <div class="signInContainer">
+<<<<<<< HEAD
             <form action="{{route('inicia-sesion')}}" method="post">
+=======
+            <form action="#" method="post">
+>>>>>>> f9aaafd4cc20641c63be4b6d802e3bf7d23eb7af
                 <label for="email">email</label>
                 <input type="text" id="email" name="email">
 
