@@ -21,7 +21,7 @@ class Comment extends Model
      */
     public function snippet(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'snippet_id');
+        return $this->belongsTo(Snippet::class, 'snippet_id');
     }
 
     /**

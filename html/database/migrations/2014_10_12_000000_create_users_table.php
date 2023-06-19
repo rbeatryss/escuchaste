@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('profile')->nullable();
             $table->boolean('is_privated')->default(0);
             $table->string('password');
-            $table->string('checkpassword');
+            $table->string('checkpassword');//esto hay que ponerlo?
             $table->rememberToken();
             $table->timestamps();
         });
