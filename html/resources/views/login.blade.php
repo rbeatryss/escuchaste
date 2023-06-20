@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
-    <link rel="stylesheet" href="login.css">
+    <link href="{{ mix('css/login.css') }}" rel="stylesheet">
 </head>
 <body>
     <div class="logo">
