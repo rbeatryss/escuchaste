@@ -12,16 +12,12 @@
     </div>
     <h1>Log in</h1>
         <div class="signInContainer">
-<<<<<<< HEAD
-            <form action="{{route('inicia-sesion')}}" method="post">
-=======
-            <form action="#" method="post">
->>>>>>> f9aaafd4cc20641c63be4b6d802e3bf7d23eb7af
+            <form name="formulario" action="#" onsubmit="return validateLogin()" method="post">
                 <label for="email">email</label>
-                <input type="text" id="email" name="email">
+                <input type="text" id="email" name="email" required>
 
                 <label for="password">password</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" required>
 
                 <input class="btnSubmit" type="submit" value="Submit">
             </form>
@@ -32,5 +28,6 @@
             </div>
             <a href="signup.php" class="btnSignUp">Sign up</a>
         </div>
+        <script src="validateLogin.js"></script>
 </body>
 </html>
