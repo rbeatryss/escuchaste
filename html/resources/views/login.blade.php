@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
-    <link href="{{ mix('css/login.css') }}" rel="stylesheet">
+    <!-- <link href="{{ mix('css/login.css') }}" rel="stylesheet"> -->
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div class="logo">
@@ -12,7 +13,7 @@
     </div>
     <h1>Log in</h1>
         <div class="signInContainer">
-            <form action="#" method="post">
+            <form action="#" method="POST">
                 <label for="email">email</label>
                 <input type="text" id="email" name="email" required>
 
