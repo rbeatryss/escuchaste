@@ -15,11 +15,11 @@ class Follower extends Model
     ];
 
     /**
-     * Get the comments for the blog post.
+     * Get the followers for the user.
      */
-    public function follow(): HasMany
+    public function user(): HasMany
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Follower::class);
     }
 
 }

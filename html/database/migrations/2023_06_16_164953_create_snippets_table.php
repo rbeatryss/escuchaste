@@ -16,7 +16,7 @@ return new class extends Migration
             $table->uuid("uuid");//unique user id
             $table->foreignId("user_id")->constrained()->cascasdeOnDelete();
             $table->longText("content");
-            $table->enum("status", ["published", "draft"])->default("draft");
+            $table->boolean("status", ["published", "draft"])->default("draft");
             $table->unsignedBigInteger("likes")->default(0);
             $table->unsignedBigInteger("comments")->default(0);
             $table->timestamps();
