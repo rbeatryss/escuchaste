@@ -17,8 +17,9 @@ class FollowerFactory extends Factory
     public function definition(): array
     {
         return [
-            'follower_id'=>1,
-            'following_id'=>1
+            'user_id'=>fake()->numberBetween(1, 3),
+            'follower_id'=> fake()->numberBetween(1, 5),
+            'following_id'=> fake()->numberBetween(1, 5)
         ];
     }
 }

@@ -17,7 +17,8 @@ class LikeFactory extends Factory
     public function definition(): array
     {
         return [
-            'timestamps'=>fake()->dateTime()
+            'snippet_id'=> fake()->numberBetween(1,3), 
+            'user_id'=> fake()->numberBetween(1,3),
         ];
     }
 }

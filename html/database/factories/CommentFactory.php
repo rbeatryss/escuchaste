@@ -16,9 +16,11 @@ class CommentFactory extends Factory
      */
     public function definition(): array
     {
+        
         return [
-            'comment'=>fake()->text(50),
-            'timestamps'=>fake()->dateTime()
+            'snippet_id'=> fake()->numberBetween(1, 3),
+            'user_id'=>fake()->numberBetween(1, 3),
+            'comment'=>fake()->text(50)    
         ];
     }
 }

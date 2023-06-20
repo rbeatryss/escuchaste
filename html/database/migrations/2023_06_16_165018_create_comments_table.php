@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId("snippet_id")->constrained()->cascadeOnDelete();
             $table->foreignId("user_id")->constrained()->cascadeOnDelete();
             $table->text("comment");
-            $table->enum("status", ["publish","pending"])->default("pending");//no es necesario, no?
             $table->timestamps();
         });
     }
