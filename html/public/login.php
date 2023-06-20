@@ -14,10 +14,10 @@
         <div class="signInContainer">
             <form name="formulario" action="#" onsubmit="return validateLogin()" method="post">
                 <label for="email">email</label>
-                <input type="text" id="email" name="email" required>
+                <input type="text" id="email" name="email">
 
                 <label for="password">password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password">
 
                 <input class="btnSubmit" type="submit" value="Submit">
             </form>
