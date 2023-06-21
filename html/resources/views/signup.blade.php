@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="./css/signup.css">
 </head>
 <body>
@@ -12,13 +12,13 @@
     </div>
     <h1>Create new account</h1>
         <div class="signInContainer">
-            <form action="#" method="post">
+            <form action="{{ route('signup') }}" method="post">
 
-                <label for="password">name</label>
-                <input type="text" id="name" name="name" required>
+                <label for="name">name</label>
+                <input type="text" id="name" name="name" value ="{{ old('name', '') }}" required>
 
-                <label for="password">surname</label>
-                <input type="text" id="fname" name="fname" required>
+                <label for="surname">surname</label>
+                <input type="text" id="fname" name="fname" value ="{{ old('surname', '') }}" required>
 
                 <label for="username">username</label>
                 <input type="text" id="username" name="username" required>

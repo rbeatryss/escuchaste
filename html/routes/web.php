@@ -15,8 +15,41 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
+
+Route::post('/signup', function () {
+    $validatedData = $request->validate([
+        'name'      => 'required',
+        'fname'     => 'required',
+        'username'  => 'required',
+        'email'     => 'required|email',
+        'password'  => 'required|min:6|confirmed',
+    ]);
+    $user = User::create([
+        'name'      => $validatedData['name'],
+        'fname'     => $validatedData['surname'],
+        'username'  => $validatedData['username'],
+        'email'     => $validatedData['email'],
+        'password'  => Hash::make($validatedData['password']),
+    ]);
+})->name('signup');
+
+Route::get('/feed', function () {
+    $userName = 'Maria';
+    return view('feed')->with('userName', $userName);
+})->name('feed');
+
+Route::get('/snippet', function () {
+    return view('snippet.snippet');
+});
+
+Route::get('/snippet/create', [Snippet::class, "create"]);
+Route::post('/snippet/create', [Snippet::class, "store"]);
+
+Route::get('/setting', function () {
+    return view('setting');
+})->name('setting');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,4 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 require __DIR__.'/auth.php';
+
