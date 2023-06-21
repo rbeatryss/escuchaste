@@ -2,10 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-
+use App\Http\Controllers\SnippetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,11 +32,23 @@ Route::post( '/signup', function (Request $request) {
     ]);
     $user = User::create([
         'name'      => $validatedData['name'],
-        'fname'     => $validatedData['surname'],
+        'fname'     => $validatedData['fname'],
         'username'  => $validatedData['username'],
         'email'     => $validatedData['email'],
         'password'  => Hash::make($validatedData['password']),
     ]);
+})->name('signup');
+
+Route::post('/login', function () {
+    return view('feed');
+});
+
+Route::post('/signup', function () {
+    return view('feed');
+});
+
+Route::get('/signup', function () {
+    return view('signup');
 })->name('signup');
 
 Route::get('/feed', function () {
@@ -47,12 +56,8 @@ Route::get('/feed', function () {
     return view('feed')->with('userName', $userName);
 })->name('feed');
 
-Route::get('/snippet', function () {
-    return view('snippet.snippet');
-});
-
-Route::get('/snippet/create', [Snippet::class, "create"]);
-Route::post('/snippet/create', [Snippet::class, "store"]);
+Route::get('snippet/create', [SnippetController::class, "create"])->name("snippet.create");
+Route::post('snippet/create', [Snippet::class, "store"]);
 
 Route::get('/setting', function () {
     return view('setting');
@@ -70,4 +75,3 @@ Route::middleware('auth')->group(function () {
 
 
 require __DIR__.'/auth.php';
-

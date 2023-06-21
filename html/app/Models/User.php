@@ -59,5 +59,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class);
     }
+    // public function store(){
+    //     dd("ok");
+    // }
 
 }

@@ -12,7 +12,7 @@
     </div>
     <h1>Log in</h1>
         <div class="signInContainer">
-            <form action="{{ route('login') }}" method="POST">
+            <form action="{{ route('signup') }}" method="post">
             @csrf
                 <label for="email">email</label>
                 <input type="text" id="email" name="email" required>

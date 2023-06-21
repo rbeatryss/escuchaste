@@ -35,7 +35,7 @@
                 <label for="password">password confirmation</label>
                 <input type="password" id="passwordconf" name="passwordconf">
 
-                <input class="btnSubmit" type="submit" value="Sign up">
+                <input class="btnSubmit" type="submit" value="Sign up" action="{{ route('feed') }}">
             </form>
         </div>
         <script src="./js/validateSignup.js"></script>

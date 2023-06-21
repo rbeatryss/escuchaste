@@ -12,7 +12,7 @@
 <div class="aside">
     <div class="welcome">
         <img src="public/img/testProfilePic.jpeg" alt="Profile Image">  {{-- {{ asset($profileImage) }} --}}
-        <h1 class="welcomeUser">Hi, {{ $userName }}</h1>
+        <h1 class="welcomeUser">Hi, User</h1> {{-- {{ $userName }} --}}
         <a href="#" class="LogInSignUp">Log out</a>
         <div class="followersFollowing">
         <div class="column">
@@ -35,8 +35,10 @@
 <div class="mainContainer">
     <div class="mainContainerTopNav">
         <span class="displayDescription"><h2>Explore all</h2></span> {{--{{ $pageTitle }}--}}
-            <a href="snippet/create" class="btnNewPost">New post +</a>
+            <a href="{{ route('snippet.create') }}" class="btnNewPost">New post +</a>
     </div>
-@yield ('content')
+    <div class="mainContainerContent">
+        @yield ('content')
+    </div>
 </div>
 </body>
