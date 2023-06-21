@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProfileController;
+//use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +21,49 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
+
+Route::post('/login', [LoginController::class], 'login');
+
+
+Route::get('/signup', function(){
+    return view('signup');
+})->name('signup');
+
+Route::post( '/signup', function (Request $request) {
+    $validatedData = $request->validate([
+        'name'      => 'required',
+        'fname'     => 'required',
+        'username'  => 'required',
+        'email'     => 'required|email',
+        'password'  => 'required|min:6|confirmed',
+    ]);
+    $user = User::create([
+        'name'      => $validatedData['name'],
+        'fname'     => $validatedData['surname'],
+        'username'  => $validatedData['username'],
+        'email'     => $validatedData['email'],
+        'password'  => Hash::make($validatedData['password']),
+    ]);
+    return view('feed');
+})->name('signup');
+
+Route::get('/feed', function () {
+    $userName = 'Maria';
+    return view('feed')->with('userName', $userName);
+})->name('feed');
+
+Route::get('/snippet', function () {
+    return view('snippet.snippet');
+});
+
+Route::get('/snippet/create', [Snippet::class, "create"]);
+Route::post('/snippet/create', [Snippet::class, "store"]);
+
+Route::get('/setting', function () {
+    return view('setting');
+})->name('setting');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,4 +75,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::post('/logout', [LoginController::class], 'logout');
+
+
 require __DIR__.'/auth.php';
+
