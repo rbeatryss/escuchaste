@@ -35,7 +35,7 @@
 <div class="mainContainer">
     <div class="mainContainerTopNav">
         <span class="displayDescription"><h2>Explore all</h2></span> {{--{{ $pageTitle }}--}}
-            <a href="{{ route('snippet/create') }}" class="btnNewPost">New post +</a>
+            <a href="{{ route('snippet.create') }}" class="btnNewPost">New post +</a>
     </div>
     <div class="mainContainerContent">
         @yield ('content')

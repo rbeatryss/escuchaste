@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SnippetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Route::get('/signup', function(){
     return view('signup');
 })->name('signup');
 
-Route::post( '/signup', function (Request $requestRequest $request) {
+Route::post( '/signup', function (Request $request) {
     $validatedData = $request->validate([
         'name'      => 'required',
         'fname'     => 'required',
@@ -55,8 +56,8 @@ Route::get('/feed', function () {
     return view('feed')->with('userName', $userName);
 })->name('feed');
 
-Route::get('/snippet/create', [SnippetController::class, "create"])->name("snippet.create");
-Route::post('/snippet/create', [Snippet::class, "store"]);
+Route::get('snippet/create', [SnippetController::class, "create"])->name("snippet.create");
+Route::post('snippet/create', [Snippet::class, "store"]);
 
 Route::get('/setting', function () {
     return view('setting');
