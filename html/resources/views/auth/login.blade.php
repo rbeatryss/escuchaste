@@ -12,7 +12,7 @@
     </div>
     <h1>Log in</h1>
         <div class="signInContainer">
-            <form action="{{ route('login') }}" method="POST">
+            <form action="{{ route('signup') }}" method="post">
             @csrf
                 <label for="email">email</label>
                 <input type="text" id="email" name="email" required>
@@ -27,7 +27,7 @@
                 <div class="orText">or</div>
                 <div class="dividerLine"></div>
             </div>
-            <a href="signup.blade.php" class="btnSignUp">Sign up</a>
+            <a href="{{ route('signup') }}" class="btnSignUp">Sign up</a>
             <a href="{{ route('feed') }}" class="continueAnon">continue anonymously</a>
         </div>
 </body>

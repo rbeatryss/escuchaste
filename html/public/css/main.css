@@ -103,16 +103,22 @@ h3 {
     display: flex;
     margin-left: 30%;
     flex-direction: column;
-    /* margin: 20px; */
     margin-top: 25px;
 }
 
 .mainContainerTopNav {
-    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+
+    /* display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 0;
-    width: 100%;
+    width: 100%; */
 }
 
 a.btnNewPost {

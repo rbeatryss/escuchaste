@@ -13,7 +13,7 @@
     <h1>Create new account</h1>
         <div class="signInContainer">
             <form action="{{ route('signup') }}" method="post">
-
+            @csrf
                 <label for="name">name</label>
                 <input type="text" id="name" name="name" value ="{{ old('name', '') }}" required>
 
@@ -35,7 +35,7 @@
                 <label for="password">password confirmation</label>
                 <input type="password" id="password" name="password" required>
 
-                <input class="btnSubmit" type="submit" value="Sign up">
+                <input class="btnSubmit" type="submit" value="Sign up" action="{{ route('feed') }}">
             </form>
         </div>
 </body>
