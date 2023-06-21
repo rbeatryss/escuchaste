@@ -2,9 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +17,11 @@ use Illuminate\Support\Facades\Hash;
 Route::get('/', function () {
     return view('auth/login');
 });
+Route::get('/signup', function(){
+    return view('signup');
+})->name('signup');
 
-Route::post('/signup', function (Request $request) {
+Route::post( '/signup', function (Request $requestRequest $request) {
     $validatedData = $request->validate([
         'name'      => 'required',
         'fname'     => 'required',

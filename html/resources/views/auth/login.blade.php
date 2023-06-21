@@ -27,7 +27,7 @@
                 <div class="orText">or</div>
                 <div class="dividerLine"></div>
             </div>
-            <a href="{{ route('signup') }}" class="btnSignUp">Sign up</a>
+            <a href="{{ route ('signup') }}" class="btnSignUp">Sign up</a>
             <a href="{{ route('feed') }}" class="continueAnon">continue anonymously</a>
         </div>
 </body>
