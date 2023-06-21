@@ -16,11 +16,11 @@ class CommentFactory extends Factory
      */
     public function definition(): array
     {
-        
+
         return [
             'snippet_id'=> fake()->numberBetween(1, 3),
             'user_id'=>fake()->numberBetween(1, 3),
-            'comment'=>fake()->text(50)    
+            'comment'=>fake()->text(50)
         ];
     }
 }

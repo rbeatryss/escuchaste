@@ -83,12 +83,17 @@ input[type="password"] {
     align-items: center;
     background-color: #DCD0DF;
     border: none;
-    width: 310px;
+    width: 315px;
     height: 30px;
     line-height: 11px;
     font-size: 15px;
     text-decoration: none;
     color: #000;
+}
+
+.continueAnon {
+    padding-top: 25px;
+    color: #F0A273;
 }
 
 

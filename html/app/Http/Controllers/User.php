@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class User extends Controller
 {
-    //
+    // public function showProfile(){
+    // $userName = "John Doe";
+    // return view('profile', ['userName' => $userName]);
+    // }
 }
