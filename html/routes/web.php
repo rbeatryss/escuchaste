@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,22 +25,22 @@ Route::get('/signup', function(){
     return view('signup');
 })->name('signup');
 
-Route::post( '/signup', function (Request $request) {
-    $validatedData = $request->validate([
-        'name'      => 'required',
-        'fname'     => 'required',
-        'username'  => 'required',
-        'email'     => 'required|email',
-        'password'  => 'required|min:6|confirmed',
-    ]);
-    $user = User::create([
-        'name'      => $validatedData['name'],
-        'fname'     => $validatedData['surname'],
-        'username'  => $validatedData['username'],
-        'email'     => $validatedData['email'],
-        'password'  => Hash::make($validatedData['password']),
-    ]);
-})->name('signup');
+// Route::post( '/signup', function (Request $request) {
+//     $validatedData = $request->validate([
+//         'name'      => 'required',
+//         'fname'     => 'required',
+//         'username'  => 'required',
+//         'email'     => 'required|email',
+//         'password'  => 'required|min:6|confirmed',
+//     ]);
+//     $user = User::create([
+//         'name'      => $validatedData['name'],
+//         'fname'     => $validatedData['surname'],
+//         'username'  => $validatedData['username'],
+//         'email'     => $validatedData['email'],
+//         'password'  => Hash::make($validatedData['password']),
+//     ]);
+// })->name('signup');
 
 Route::get('/feed', function () {
     $userName = 'Maria';
@@ -68,6 +68,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/user',[UsersController::class,'create'])->name('user.create');
+Route::post('/user',[UsersController::class,'store'])->name('user.store');
 
 require __DIR__.'/auth.php';
 

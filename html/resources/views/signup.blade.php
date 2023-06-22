@@ -12,7 +12,7 @@
     </div>
     <h1>Create new account</h1>
         <div class="signInContainer">
-            <form  name="form" action="{{ route('signup') }}" method="post">
+            <form  name="form" action="{{ route('user.store') }}" method="post">
                 @csrf
                 <label for="name">name</label>
                 <input type="text" id="name" name="name" value ="{{ old('name', '') }}" >
@@ -38,6 +38,6 @@
                 <input class="btnSubmit" type="submit" value="Sign up">
             </form>
         </div>
-        <script src="./js/validateSignup.js"></script>
+        {{-- <script src="{{mix('/js/validateSignup.js')}}"></script> --}}
 </body>
 </html>

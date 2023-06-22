@@ -15,10 +15,10 @@
             <form action="{{ route('login') }}" method="POST">
             @csrf
                 <label for="email">email</label>
-                <input type="text" id="email" name="email" required>
+                <input type="text" id="email" name="email">
 
                 <label for="password">password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password">
 
                 <input class="btnSubmit" type="submit" value="Submit">
             </form>
@@ -30,5 +30,6 @@
             <a href="{{ route ('signup') }}" class="btnSignUp">Sign up</a>
             <a href="{{ route('feed') }}" class="continueAnon">continue anonymously</a>
         </div>
+        {{-- <script src="{{ mix('/js/validateLogin.js')}}"></script> --}}
 </body>
 </html>
