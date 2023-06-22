@@ -13,10 +13,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('../../public/css/feed.css') }}">
 </head>
 <body>
-
+    @foreach($snippets as $snippet)
+        @include('snippet.snippet', ['snippet' => $snippet])
+    @endforeach
 </body>
 </html>
-
-@include('snippet.snippet', ['snippets' => $snippets])
 
 @endsection

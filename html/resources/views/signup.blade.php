@@ -12,7 +12,7 @@
     </div>
     <h1>Create new account</h1>
         <div class="signInContainer">
-            <form  name="form" action="{{ route('signup') }}" method="post">
+        <form name="form" action="{{ route('user_store') }}" method="post">
                 @csrf
                 <label for="name">name</label>
                 <input type="text" id="name" name="name" value ="{{ old('name', '') }}" >
@@ -35,7 +35,7 @@
                 <label for="password">password confirmation</label>
                 <input type="password" id="passwordconf" name="passwordconf">
 
-                <input class="btnSubmit" type="submit" value="Sign up" action="{{ route('feed') }}">
+                <input class="btnSubmit" type="submit" value="Sign up">
             </form>
         </div>
         <script src="./js/validateSignup.js"></script>

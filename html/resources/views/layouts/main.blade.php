@@ -28,7 +28,7 @@
     </div>
 
     <ul class="navbar">
-        <li><a href="feed"><img src="{{ asset('img/icon_home_after.svg') }}" alt="icon_home"><h2>Home</h2></a></li>
+        <li><a href="/feed"><img src="{{ asset('img/icon_home_after.svg') }}" alt="icon_home"><h2>Home</h2></a></li>
         <li><a href="saved"><img src="{{ asset('img/icon_saved.svg') }}" alt="icon_saved"><h2>Saved</h2></a></li>
         <li><a href="setting"><img src="{{ asset('img/icon_settings.svg') }}" alt="icon_settings"><h2>Settings</h2></a></li>
     </ul>

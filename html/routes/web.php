@@ -16,29 +16,16 @@ use App\Models\Snippet;
 |
 */
 
+Route::get("user/new", [UserController::class, 'create']);
+Route::post('/user/store', [UserController::class, 'store'])->name('user_store');
+
+
 Route::get('/', function () {
     return view('auth/login');
 })->name('login');
 
 Route::get('/signup', function () {
     return view('signup');
-})->name('signup');
-
-Route::post( '/signup', function (Request $request) {
-    $validatedData = $request->validate([
-        'name'      => 'required',
-        'fname'     => 'required',
-        'username'  => 'required',
-        'email'     => 'required|email',
-        'password'  => 'required|min:6|confirmed',
-    ]);
-    $user = User::create([
-        'name'      => $validatedData['name'],
-        'fname'     => $validatedData['fname'],
-        'username'  => $validatedData['username'],
-        'email'     => $validatedData['email'],
-        'password'  => Hash::make($validatedData['password']),
-    ]);
 })->name('signup');
 
 Route::post('/login', function () {
@@ -60,9 +47,10 @@ Route::get('/feed', function () {
 })->name('feed');
 
 Route::get('/feed', function () {
-    $snippets = Snippet::all();
+    $snippets = App\Models\Snippet::all();
     return view('feed', ['snippets' => $snippets]);
 })->name('feed');
+
 
 Route::get('snippet', [SnippetController::class, "index"]);
 
@@ -88,6 +76,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 
 require __DIR__.'/auth.php';
