@@ -17,8 +17,8 @@ class LikeFactory extends Factory
     public function definition(): array
     {
         return [
-            'snippet_id'=> fake()->numberBetween(1,3), 
-            'user_id'=> fake()->numberBetween(1,3),
+            'snippet_id' => fake()->numberBetween(1,3),
+            'user_id'    => fake()->numberBetween(1,3),
         ];
     }
 }

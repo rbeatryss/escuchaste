@@ -4,16 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <title>@yield('title', 'escuchaste')</title>
 </head>
 <body>
 <div class="container">
 <div class="aside">
     <div class="welcome">
-        <img src="public/img/testProfilePic.jpeg" alt="Profile Image">  {{-- {{ asset($profileImage) }} --}}
+    <img src="{{ asset('img/anonymous.png') }}" alt="Profile Image">
+    <!-- <img src="{{ '#' ?: asset('img/anonymous.png') }}" alt="Profile Image"> -->
         <h1 class="welcomeUser">Hi, User</h1> {{-- {{ $userName }} --}}
-        <a href="#" class="LogInSignUp">Log out</a>
+        <a href="{{ route('login') }}" class="LogInSignUp">Log in</a>
         <div class="followersFollowing">
         <div class="column">
             <h3 class="followers">Followers</h3>
@@ -27,9 +28,9 @@
     </div>
 
     <ul class="navbar">
-        <li><a href="feed"><img src="img/icon_home_after.svg" alt="icon_home"><h2>Home</h2></a></li>
-        <li><a href="saved"><img src="img/icon_saved.svg" alt="icon_saved"><h2>Saved</h2></a></li>
-        <li><a href="setting"><img src="img/icon_settings.svg" alt="icon_settings"><h2>Settings</h2></a></li>
+        <li><a href="feed"><img src="{{ asset('img/icon_home_after.svg') }}" alt="icon_home"><h2>Home</h2></a></li>
+        <li><a href="saved"><img src="{{ asset('img/icon_saved.svg') }}" alt="icon_saved"><h2>Saved</h2></a></li>
+        <li><a href="setting"><img src="{{ asset('img/icon_settings.svg') }}" alt="icon_settings"><h2>Settings</h2></a></li>
     </ul>
 </div>
 <div class="mainContainer">

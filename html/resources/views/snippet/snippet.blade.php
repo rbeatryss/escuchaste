@@ -1,29 +1,35 @@
-@extends('layout.main')
+@extends('layouts.main')
 
-@section ('title', 'Listing page')
+@section('title', 'Snippet')
 
-@section ('content')
+@section('content')
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snippet</title>
+<link rel="stylesheet" href="{{ asset('css/snippet.css') }}">
 </head>
 <body>
 @foreach ($snippets as $snippet)
     <div class="snippetContainer">
-        <div class="snippetHeaderLeft">
-            <img/>
-            <a href="#" class="follow">Follow</a>
+        <div class="userInfo">
+            <img class="postImage"/>
+            <div class="snippetUserAction">
+                <span class="username">{{ $snippet->user_id }}</span>
+                <a href="#" class="follow">Follow</a>
+            </div>
         </div>
-        <div class="snippetContent">
-            <span class="title">{{ $snippet['snippetTitle'] }}</span>
-            <span class="snippetText">{{ $snippet['snippetText'] }}</span>
+        <div class="snippetFullContent">
+            <span class="title">{{ $snippet->title }}</span>
+            <span class="content">{{ $snippet->content }}</span>
+        </div>
+        <div class="snippetActions">
+            <img src="like-icon.svg" alt="Like" id="likeIcon">
+            <img src="comment-icon.svg" alt="Comment" id="commentIcon">
         </div>
     </div>
 @endforeach
+
 
 </body>
 </html>

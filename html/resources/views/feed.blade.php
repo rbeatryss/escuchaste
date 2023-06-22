@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('title', 'Feed')
+
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,3 +16,7 @@
 
 </body>
 </html>
+
+@include('snippet.snippet', ['snippets' => $snippets])
+
+@endsection

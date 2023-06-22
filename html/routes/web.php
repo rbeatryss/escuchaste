@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SnippetController;
+use App\Models\Snippet;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,9 @@ use App\Http\Controllers\SnippetController;
 
 Route::get('/', function () {
     return view('auth/login');
-});
-Route::get('/signup', function(){
+})->name('login');
+
+Route::get('/signup', function () {
     return view('signup');
 })->name('signup');
 
@@ -51,13 +53,27 @@ Route::get('/signup', function () {
     return view('signup');
 })->name('signup');
 
+
 Route::get('/feed', function () {
     $userName = 'Maria';
     return view('feed')->with('userName', $userName);
 })->name('feed');
 
+Route::get('/feed', function () {
+    $snippets = Snippet::all();
+    return view('feed', ['snippets' => $snippets]);
+})->name('feed');
+
+Route::get('snippet', [SnippetController::class, "index"]);
+
 Route::get('snippet/create', [SnippetController::class, "create"])->name("snippet.create");
-Route::post('snippet/create', [Snippet::class, "store"]);
+// Route::post('snippet/create', [Snippet::class, "store"]);
+Route::post('/snippet', [SnippetController::class, 'store'])->name('snippet.store');
+
+
+Route::get('/create', function () {
+    return view('snippet');
+});
 
 Route::get('/setting', function () {
     return view('setting');

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('snippets', function (Blueprint $table) {
             $table->id();
-            $table->uuid("uuid");//unique user id
+            $table->string('uuid')->default('');
             $table->foreignId("user_id")->constrained()->cascasdeOnDelete();
             $table->longText("content");
             $table->enum("status", ["published", "draft"])->default("draft");

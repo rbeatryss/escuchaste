@@ -18,13 +18,14 @@ class SnippetFactory extends Factory
     {
         $status = ['published', 'draft'];
         return [
-            'uuid'=> fake()->uuid,
-            'user_id' =>fake()->numberBetween(1, 3),
-            'content'=> fake()->text(100),
-            'status'=> $status[fake()->boolean()],
-            'likes'=> fake()->numberBetween(1, 20),
-            'comments'=> fake()->numberBetween(1, 5)
+            'uuid'     => fake()->uuid,
+            'user_id'  => fake()->numberBetween(1, 8),
+            'title'    => fake()->text(100),
+            'content'  => fake()->text(100),
+            'status'   => $status[fake()->boolean()],
+            'likes'    => fake()->numberBetween(1, 20),
+            'comments' => fake()->numberBetween(1, 5)
         ];
-        
+
     }
 }

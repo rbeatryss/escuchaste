@@ -54,6 +54,7 @@ input[type="password"] {
     margin-top: 20px;
     line-height: 11px;
     font-size: 15px;
+    cursor: auto !important;
 }
 
 .dividerContainer {

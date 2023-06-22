@@ -15,16 +15,13 @@ body {
 .aside {
     float: left;
     position: fixed;
-    padding: 10px;
-    margin:30px;
-    margin-top: 0;
-    padding-top: 50px;
-    padding-right: 50px;
+    padding: 40px;
+    padding-top: 60px;
     overflow: hidden;
     width: 15%;
     height: 100vh;
     /* background: linear-gradient(90deg, rgba(255,255,255,1) 85%, rgba(134,134,134,0.2679665616246498) 100%); */
-    border-right: 5px solid rgb(159, 159, 159);
+    border-right: 3px solid rgb(159, 159, 159);
 
 }
 
@@ -33,6 +30,12 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
+.welcome img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    }
 
 .welcomeUser {
     margin: 20px;
@@ -100,29 +103,23 @@ h3 {
 
 .mainContainer {
     flex: 1 1 auto;
+    margin-left: 380px;
     display: flex;
-    margin-left: 30%;
     flex-direction: column;
     margin-top: 25px;
 }
 
 .mainContainerTopNav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #f0f0f0;
-    padding: 10px;
-
-    /* display: flex;
-    justify-content: space-between;
+    background-color: white;
+    padding-top: 70px;
+    padding-left:20px;
     align-items: center;
-    margin-top: 0;
-    width: 100%; */
-}
-
-a.btnNewPost {
-    margin-right: 85px;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 370px;
+    width: 70%;
+    justify-content: space-between;
 }
 
 .btnNewPost {
@@ -137,4 +134,5 @@ a.btnNewPost {
     font-size: 15px;
     text-decoration: none;
     color: #000;
+    margin-right: 25px;
 }
