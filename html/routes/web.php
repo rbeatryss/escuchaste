@@ -51,8 +51,8 @@ Route::get('/snippet', function () {
     return view('snippet.snippet');
 });
 
-Route::get('/snippet/create', [Snippet::class, "create"]);
-Route::post('/snippet/create', [Snippet::class, "store"]);
+Route::get('/snippet/create', [SnippetController::class, "create"]);
+Route::post('/snippet/store', [SnippetController::class, "store"]);
 
 Route::get('/setting', function () {
     return view('setting');
@@ -68,8 +68,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/user',[UsersController::class,'create'])->name('user.create');
-Route::post('/user',[UsersController::class,'store'])->name('user.store');
+Route::get('/user/create',[UsersController::class,'create'])->name('user.create');
+Route::post('/user/store',[UsersController::class,'store'])->name('user.store');
 
 require __DIR__.'/auth.php';
 
