@@ -14,6 +14,7 @@ class Snippet extends Model
     protected $fillable = [
         "uuid",
         "user_id",
+        "title",
         "content",
         "status",
         "likes",
@@ -46,5 +47,5 @@ class Snippet extends Model
         return $this->hasMany(Likes::class);
     }
 
-    
+
 }

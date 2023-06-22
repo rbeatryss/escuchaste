@@ -19,8 +19,8 @@ class CommentFactory extends Factory
 
         return [
             'snippet_id'=> fake()->numberBetween(1, 3),
-            'user_id'=>fake()->numberBetween(1, 3),
-            'comment'=>fake()->text(50)
+            'user_id'   =>fake()->numberBetween(1, 3),
+            'comment'   =>fake()->text(50)
         ];
     }
 }

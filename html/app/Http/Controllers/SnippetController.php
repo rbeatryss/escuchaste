@@ -1,43 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Snippet;
 
 class SnippetController extends Controller
 {
     public function index()
     {
-        $snippets = [
-            [
-                "snippetId" => "snippetId1",
-                "snippetTitle" => "snippetTitle1",
-                "snippetText" => "snippetText1",
-            ],
-            [
-                "snippetId" => "snippetId2",
-                "snippetTitle" => "snippetTitle2",
-                "snippetText" => "snippetText2",
-            ],
-        ];
-
-        return view('snippet', [
-            "snippets" => $snippets,
-        ]);
+        $snippets = Snippet::all();
+        return view('feed')->with('snippets', $snippets);
     }
 
-    public function create(){
+    public function create()
+    {
         return view('snippet.create');
     }
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
         $validated_data = $request->validate([
-            'snippetTitle'  => 'required',
-            'snippetText'   => 'required',
+            'title'     => 'required',
+            'content'   => 'required',
         ]);
-        return redirect("/feed");
+
+        $snippet = new Snippet();
+        $snippet->title = $validated_data['title'];
+        $snippet->content = $validated_data['content'];
+        $snippet->save();
+
+        return redirect("/snippet");
     }
 }
